@@ -1,4 +1,7 @@
+import { ToastContainer } from "react-toastify";
 import PasswordGenerator from "./PasswordGenerator/PasswordGenerator";
+
+
 
 const App = () => {
   return (
@@ -170,14 +173,12 @@ const App = () => {
         <PasswordGenerator />
       </div>
       <div className="relative">
-        <footer className="footer sm:footer-horizontal footer-center bg-base-300 text-base-content p-4">
-          <aside>
-            <p className="text-white text-center">
-              Copyright © {new Date().getFullYear()} - Md Fuad Amir All right reserved
-            </p>
-          </aside>
-        </footer>
+        <p className="text-white text-center p-4">
+          Copyright © {new Date().getFullYear()} - Md Fuad Amir All right
+          reserved
+        </p>
       </div>
+ <ToastContainer/>
     </div>
   );
 };

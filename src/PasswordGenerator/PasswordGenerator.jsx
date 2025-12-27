@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { FaCopy, FaLock } from "react-icons/fa";
 import logo from "../assets/pass.png";
+import { toast } from "react-toastify";
+
+
 const PasswordGenerator = () => {
-  const [length, setLength] = useState(12);
+  const [length, setLength] = useState(6);
   const [password, setPassword] = useState("");
   const [options, setOptions] = useState({
     uppercase: true,
@@ -19,7 +22,7 @@ const PasswordGenerator = () => {
     if (options.symbols) chars += "!@#$%^&*()_+[]{}<>?";
 
     if (!chars) {
-      alert("Select at least one option!");
+      toast.error("Select at least one option!");
       return;
     }
 
@@ -31,9 +34,12 @@ const PasswordGenerator = () => {
   };
 
   const copyPassword = () => {
-    if (!password) return;
+    if (!password) {
+      toast.error("Click the grnerate button first!");
+      return;
+    }
     navigator.clipboard.writeText(password);
-    alert("Password copied!");
+    toast.success("Password copied!");
   };
 
   return (
